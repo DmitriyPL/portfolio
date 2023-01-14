@@ -1,6 +1,6 @@
-import { BrandModel } from "../models/Brand-model.js";
+import { BrandModel } from "../models/brand-model.js";
 
-import {BrandDto} from "../dtos/Brand-dto.js"
+import {BrandDto} from "../dtos/brand-dto.js"
 
 class BrandService {
 
