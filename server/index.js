@@ -23,6 +23,8 @@ app.use(errorMiddleware);
 if (process.env.NODE_ENV === 'production'){
     app.use('/', express.static(path.join(path.resolve(), '../app', 'build')));
     app.get('*', (req, res) => {
+        console.log(process.env.CLIENT_URL);
+        console.log('send bundle')
         res.sendFile(path.resolve(path.resolve(), '../app', 'build', 'index.html'))
     })
 }
