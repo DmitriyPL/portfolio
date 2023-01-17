@@ -1,4 +1,4 @@
-// import 'react-tooltip/dist/react-tooltip.css';
+import 'react-tooltip/dist/react-tooltip.css';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -66,14 +66,14 @@ const Skills = () => {
                                             <p className='p-text'>{work.company}</p>
                                         </motion.div>
 
-                                        {/* <React.StrictMode>
+                                        <React.StrictMode>
                                             <ReactTooltip
                                                 anchorId={`tp-${work.id}`}
                                                 style={{position:"absolute"}}
                                             >
                                                 {work.desc}
                                             </ReactTooltip>
-                                        </React.StrictMode> */}
+                                        </React.StrictMode>
 
                                     </div>
                                 )}
