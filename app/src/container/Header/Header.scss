@@ -1,5 +1,5 @@
 #home {
-    
+
     position: relative;
     background: url('../../assets/img/bgIMG.png');
     background-size: cover;
@@ -8,7 +8,7 @@
 
     .app__wrapper {
         padding: 0;
-        
+
         .copyright {
             display: none;
         }
@@ -49,7 +49,7 @@
 
     @media screen and (max-width: 2000px) {
         width: 100%;
-        margin-right: 0rem;            
+        margin-right: 0rem;
     }
 }
 
@@ -148,16 +148,16 @@
             width: 400px;
             height: 400px;
         }
-    
+
         div:nth-child(2) {
             width: 170px;
             height: 170px;
         }
-    
+
         div:nth-child(3) {
             width: 200px;
             height: 200px;
-        }      
+        }
     }
 
     @media screen and (max-width: 1200px) {
@@ -166,7 +166,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         margin-left: 0;
-        
+
         div {
             margin: 1rem;
         }
