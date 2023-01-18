@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 import 'react-tooltip/dist/react-tooltip.css';
 
 import React from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> dev
 import { motion } from 'framer-motion';
-import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 import { useGetAllExpItemsQuery, useGetAllSkillItemsQuery } from '../../redux';
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -13,6 +16,13 @@ const Skills = () => {
 
     const skillsResp = useGetAllSkillItemsQuery();
     const expResp = useGetAllExpItemsQuery();
+
+    const [currentWork, setCurrentWork] = useState();
+
+    const clickHandler = (e) => {
+        console.log(expResp);
+        setCurrentWork(e.currentTarget.id);
+    }
 
     return (
         <>
@@ -54,18 +64,20 @@ const Skills = () => {
                                 className="app__skills-exp-works"
                             >
                                 { period.works.map( work =>
-                                    <div key={work.id}>
+                                    <div key={work.id} >
 
                                         <motion.div
                                             whileInView={{ opacity: [0, 1]}}
                                             transition={{ duration: 0.5 }}
                                             className="app__skills-exp-work"
-                                            id={`tp-${work.id}`}
+                                            onClick={clickHandler}
+                                            id={work.id}
                                         >
                                             <h4 className='bold-text'>{work.name}</h4>
                                             <p className='p-text'>{work.company}</p>
                                         </motion.div>
 
+<<<<<<< HEAD
                                         <React.StrictMode>
                                             <ReactTooltip
                                                 anchorId={`tp-${work.id}`}
@@ -75,6 +87,8 @@ const Skills = () => {
                                             </ReactTooltip>
                                         </React.StrictMode>
 
+=======
+>>>>>>> dev
                                     </div>
                                 )}
                             </motion.div>
@@ -82,6 +96,13 @@ const Skills = () => {
                         </motion.div>
                     )}
                 </motion.div>
+
+                <div className="app__skills-desc">
+                    Описание работы
+                    <div>
+                        {currentWork}
+                    </div>
+                </div>
 
             </div>
         </>

@@ -20,7 +20,7 @@
 
 .app__skills-list {
 
-    flex: 1;
+    flex: 2;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -41,8 +41,6 @@
     text-align: center;
 
     margin: 1rem;
-
-    // transition: all 0.3s ease-in-out;
 
     div {
         width: 80px;
@@ -85,6 +83,19 @@
 }
 
 .app__skills-exp {
+
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @media screen and (max-width: 900px) {
+        margin-top: 2rem;
+    }
+}
+
+.app__skills-desc {
 
     flex: 1;
     display: flex;
