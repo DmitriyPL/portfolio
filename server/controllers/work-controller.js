@@ -13,6 +13,19 @@ class WorkController {
             next(e);
         }
     }
+
+    async getWorkByID(req, res, next){
+        try {
+
+            const id = req.params.id;
+            const workItem = await workService.getWorkByID(id);
+
+            return res.json(workItem);
+
+        } catch (e) {
+            next(e);
+        }
+    }
 }
 
 export const workController = new WorkController();

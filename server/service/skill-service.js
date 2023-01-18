@@ -8,7 +8,7 @@ class SkillService {
 
         try {
             const skillItems = await SkillModel.find();
-            const dtoSkillItems = await Promise.all(skillItems.map(item =>           
+            const dtoSkillItems = await Promise.all(skillItems.map(item =>
                 new SkillDto(item)
             ));
             return dtoSkillItems;

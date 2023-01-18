@@ -50,6 +50,10 @@ export const portfolioApi = createApi({
       })
     }),
 
+    getWorkByID: builder.query({
+      query: (id) => `/experience/work/${id}`,
+    }),
+
   }),
 })
 
@@ -63,4 +67,5 @@ export const {
   useGetTestimonialsQuery,
   useGetBrandsQuery,
   useSendEmailMutation,
+  useGetWorkByIDQuery,
 } = portfolioApi;

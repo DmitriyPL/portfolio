@@ -9,15 +9,11 @@ class WorkService {
     async getAll() {
 
         try {
-            
-            const workIPeriods = await WorkPeriodModel.find();
-            
-            const dtoWorkIPeriods = await Promise.all(workIPeriods.map(async period => { 
-                
-                const newWorks = await Promise.all(period.works.map( async work => await this.getWorkById(work._id)));
-                
-                return new WorkPeriodDto(period._id, period.year, newWorks);
 
+            const workIPeriods = await WorkPeriodModel.find().sort({'year': -1});
+            const dtoWorkIPeriods = await Promise.all(workIPeriods.map(async period => {
+                const newWorks = await Promise.all(period.works.map( async work => await this.getWorkByID(work._id)));
+                return new WorkPeriodDto(period._id, period.year, newWorks);
             }));
 
             return dtoWorkIPeriods;
@@ -27,15 +23,15 @@ class WorkService {
         }
     }
 
-    async getWorkById(id) {
+    async getWorkByID(id) {
         try {
             const workItem = await WorkModel.findById(id);
-            const dtoworkItem = new WorkDto(workItem);                
+            const dtoworkItem = new WorkDto(workItem);
             return dtoworkItem;
 
         } catch (e) {
             return {};
-        }      
+        }
     }
 }
 
