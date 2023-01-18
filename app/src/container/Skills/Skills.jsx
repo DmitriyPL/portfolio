@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 import { useGetAllExpItemsQuery, useGetAllSkillItemsQuery } from '../../redux';
 import { AppWrap, MotionWrap } from '../../wrapper';
+import ExpDescription from '../../components/ExpDescription';
 import "./Skills.scss";
 
 
@@ -11,11 +12,10 @@ const Skills = () => {
     const skillsResp = useGetAllSkillItemsQuery();
     const expResp = useGetAllExpItemsQuery();
 
-    const [currentWork, setCurrentWork] = useState();
+    const [workID, setWorkID] = useState("");
 
     const clickHandler = (e) => {
-        console.log(expResp);
-        setCurrentWork(e.currentTarget.id);
+        setWorkID(e.currentTarget.id);
     }
 
     return (
@@ -80,10 +80,7 @@ const Skills = () => {
                 </motion.div>
 
                 <div className="app__skills-desc">
-                    Описание работы
-                    <div>
-                        {currentWork}
-                    </div>
+                    { workID && <ExpDescription workID={workID} />}
                 </div>
 
             </div>

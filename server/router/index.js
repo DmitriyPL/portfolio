@@ -16,6 +16,7 @@ router.get('/about', aboutController.getAllAboutItems);
 router.get('/portfolio', portfolioController.getAllPortfolioItems)
 router.get('/skills', skillController.getAllSkillItems);
 router.get('/experience', workController.getAllWorkItems);
+router.get('/experience/work/:id', workController.getWorkByID);
 router.get('/tags', tagController.getAllTagItems);
 router.get('/contact', contactController.getContact);
 router.get('/testimonial', testimonialController.getAllTestimonialItems);
