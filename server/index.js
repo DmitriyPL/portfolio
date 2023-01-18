@@ -11,7 +11,7 @@ import https from 'https';
 import { router } from "./router/index.js";
 import { errorMiddleware } from "./middlewares/error-middleware.js";
 
-
+const certPath = '/etc/letsencrypt/live/dplotitsyn.com';
 const PORT = process.env.PORT || 5000;
 const app = express();
 
@@ -37,5 +37,12 @@ mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true
 }).then( () => {
     console.log("DB connected");
-    app.listen(PORT, () => console.log(`Server start on port ${PORT}`));
+    if (process.env.NODE_ENV === 'production') {
+        https.createServer({
+            key: fs.readFileSync(`${certPath}/privkey.pem`),
+            cert: fs.readFileSync( `${certPath}/fullchain.pem`)
+        }, app ).listen(443, () => console.log(`Server start on port 443`));
+    } else {
+        app.listen(PORT, () => console.log(`Server start on port ${PORT}`));
+    }
 }).catch( e => console.log(e));
