@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import 'react-tooltip/dist/react-tooltip.css';
-
-import React from 'react';
-=======
 import React, { useState } from 'react';
->>>>>>> dev
 import { motion } from 'framer-motion';
 
 import { useGetAllExpItemsQuery, useGetAllSkillItemsQuery } from '../../redux';
@@ -77,18 +71,6 @@ const Skills = () => {
                                             <p className='p-text'>{work.company}</p>
                                         </motion.div>
 
-<<<<<<< HEAD
-                                        <React.StrictMode>
-                                            <ReactTooltip
-                                                anchorId={`tp-${work.id}`}
-                                                style={{position:"absolute"}}
-                                            >
-                                                {work.desc}
-                                            </ReactTooltip>
-                                        </React.StrictMode>
-
-=======
->>>>>>> dev
                                     </div>
                                 )}
                             </motion.div>
