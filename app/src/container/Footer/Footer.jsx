@@ -130,8 +130,12 @@ const Footer = () => {
                                         />
                                 }
 
-                                <button type="submit" disabled={isSubmitting || isLoading}>
-                                    Submit
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting || isLoading}
+                                    className={ isLoading ? 'isLoading' : ''}
+                                >
+                                    { isLoading ? 'Loading...' : 'Submit'}
                                 </button>
                             </form>
                         )}
@@ -144,76 +148,6 @@ const Footer = () => {
                     </h3>
                 </div>
             }
-
-            {/* <div className='app__footer-form app__flex'>
-                <Formik
-                    onSubmit={handleFormSubmit}
-                    initialValues={initialValues}
-                    validationSchema={checkoutSchema}
-                >
-                    {({
-                    values,
-                    handleBlur,
-                    handleChange,
-                    handleSubmit,
-                    }) => (
-                    <form onSubmit={handleSubmit}>
-
-                            <>
-                                <div className='app__flex'>
-                                    <input
-                                        className='p-text'
-                                        type='text'
-                                        placeholder="Your Name"
-                                        name="name"
-                                        value={values.name}
-                                        onBlur={handleBlur}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className='app__flex'>
-                                    <input
-                                        className='p-text'
-                                        type='text'
-                                        placeholder="Your Email"
-                                        name="email"
-                                        value={values.email}
-                                        onBlur={handleBlur}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div>
-                                    <textarea
-                                        className='p-text'
-                                        placeholder='Your Message'
-                                        name='message'
-                                        value={values.message}
-                                        onBlur={handleBlur}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <button
-                                    type='submit'
-                                    className='p-text'
-                                    disabled={isLoading}
-                                >
-                                    {isLoading ? 'Sending...' : 'Send Message'}
-                                </button>
-                            </>
-
-                            :
-
-                            <div>
-                                <h3 className='head-text'>
-                                    Thank you for getting in touch
-                                </h3>
-                            </div>
-                        }
-                    </form>
-                    )}
-
-                </Formik>
-            </div> */}
         </>
     );
 }

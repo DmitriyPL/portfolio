@@ -4,11 +4,11 @@ import { useGetWorkByIDQuery } from '../redux';
 
 const ExpDescription = ({ workID }) => {
 
-    const workResp = useGetWorkByIDQuery(workID);
+    const {data, isLoading } = useGetWorkByIDQuery(workID);
 
     return (
         <div>
-            { workResp.data && <p className='p-text' > {workResp.data.desc} </p> }
+            { data && <p className='p-text' > { isLoading ? 'Loading...' : data.desc} </p> }
         </div>
     );
 }
