@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const API_URL = process.env.NODE_ENV === 'production' ? 'http://45.131.41.90:80/api/' : 'http://localhost:5000/api/';
+export const API_URL = process.env.NODE_ENV === 'production' ? 'https://dplotitsyn.com/api/' : 'http://localhost:5000/api/';
 
 export const portfolioApi = createApi({
 
