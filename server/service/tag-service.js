@@ -19,6 +19,8 @@ class TagService {
 
         try {
             const tagItems = await TagModel.find();
+            const allTag = tagItems.splice(4, 1)[0];
+            tagItems.push(allTag);
             const dtoTagItems = tagItems.map(item => new TagDto(item));
             return dtoTagItems
 

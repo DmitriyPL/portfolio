@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useGetAllExpItemsQuery, useGetAllSkillItemsQuery } from '../../redux';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import ExpDescription from '../../components/ExpDescription';
+import { replaceHost } from '../../redux';
 import "./Skills.scss";
 
 
@@ -35,7 +36,7 @@ const Skills = () => {
                             <div
                                 className='app__flex'
                                 style={{ background: skill.bgColor }}>
-                                    <img src={skill.icon} alt={skill.name} />
+                                    <img src={replaceHost(skill.icon)} alt={skill.name} />
                             </div>
                             <p className='p-text'>{skill.name}</p>
                         </motion.div>
@@ -50,7 +51,7 @@ const Skills = () => {
                         >
                             <div className='app__skills-exp-year'>
                                 <p className='bold-text'>
-                                    {period.year}
+                                    {period.desc}
                                 </p>
                             </div>
 
@@ -68,9 +69,11 @@ const Skills = () => {
                                             id={work.id}
                                         >
                                             <h4 className='bold-text'>{work.name}</h4>
-                                            <p className='p-text'>{work.company}</p>
-                                        </motion.div>
+                                            <p className='p-text'>
+                                                <a href={work.url}>{work.company}</a>
+                                            </p>
 
+                                        </motion.div>
                                     </div>
                                 )}
                             </motion.div>

@@ -10,10 +10,10 @@ class WorkService {
 
         try {
 
-            const workIPeriods = await WorkPeriodModel.find().sort({'year': -1});
+            const workIPeriods = await WorkPeriodModel.find().sort({'number': -1});
             const dtoWorkIPeriods = await Promise.all(workIPeriods.map(async period => {
                 const newWorks = await Promise.all(period.works.map( async work => await this.getWorkByID(work._id)));
-                return new WorkPeriodDto(period._id, period.year, newWorks);
+                return new WorkPeriodDto(period._id, period.number, period.desc, newWorks);
             }));
 
             return dtoWorkIPeriods;

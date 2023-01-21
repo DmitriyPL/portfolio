@@ -1,11 +1,13 @@
 export class WorkPeriodDto {
     id;
-    year;
+    number;
+    desc;
     works;
 
-    constructor(id, year, works ) {
+    constructor(id, number, desc, works ) {
         this.id = id;
-        this.year = year;
+        this.number = number;
+        this.desc = desc;
         this.works = works;
     }
 }

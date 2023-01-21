@@ -1,7 +1,8 @@
 import { Schema, model } from "mongoose";
 
 const schema = new Schema({
-    year: { type: String },
+    number: { type: Number },
+    desc: { type: String },
     works: [{ type: Schema.Types.ObjectId, ref: 'Work' }],
 })
 

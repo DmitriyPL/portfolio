@@ -33,7 +33,7 @@
     }
 
     @media screen and (max-width: 450px) {
-        padding-top: 6rem 1rem 2rem;
+        padding: 5rem 1rem 2rem;
     }
 
 }
@@ -75,6 +75,15 @@
             width: 50%;
             height: 50%;
         }
+
+        @media screen and (max-width: 450px) {
+            padding: 0rem 1rem;
+            img {
+                width: 40%;
+                height: 40%;
+            }
+        }
+
     }
 
     .tag-cmp {
@@ -99,6 +108,12 @@
     @media screen and (max-width: 1200px) {
         justify-content: flex-start;
         align-items: flex-start;
+    }
+
+    @media screen and (max-width: 450px) {
+        .tag-cmp {
+            margin-top: 1rem;
+        }
     }
 }
 
@@ -201,5 +216,9 @@
 
     @media screen and (max-width: 1200px) {
         margin: 2rem 0;
+    }
+
+    @media screen and (max-width: 450px) {
+        margin-top: 1rem;
     }
 }

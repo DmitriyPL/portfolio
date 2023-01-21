@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 import { useGetAllAboutItemsQuery } from '../../redux';
 import { AppWrap, MotionWrap } from '../../wrapper';
+import { replaceHost } from '../../redux';
 import "./About.scss";
 
 const About = () => {
@@ -15,7 +16,7 @@ const About = () => {
                 I know that <span>Good Dev</span> <br /> means <span>Good Business</span>
             </h2>
             <div className='app__profiles'>
-                {data.map( (about, index) => 
+                {data.map( (about, index) =>
                     <motion.div
                         whileInView = {{ opacity: 1 }}
                         whileHover = {{ scale: 1.1 }}
@@ -23,7 +24,7 @@ const About = () => {
                         className = "app__profile-item"
                         key = { about.title + index }
                     >
-                        <img src={about.imgUrl} alt={about.title} />
+                        <img src={replaceHost(about.imgUrl)} alt={about.title} />
                         <h2
                             className='bold-text'
                             style={{ marginTop: 20 }}

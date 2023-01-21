@@ -2,6 +2,15 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const API_URL = process.env.NODE_ENV === 'production' ? 'https://dplotitsyn.com/api/' : 'http://localhost:5000/api/';
 
+export const replaceHost = (imgPath) => {
+
+  if (process.env.NODE_ENV !== 'production') {
+      return imgPath.replace(/https:\/\/dplotitsyn.com/g, 'http://localhost:5000')
+  } else {
+      return imgPath;
+  }
+}
+
 export const portfolioApi = createApi({
 
   reducerPath: 'portfolioApi',
